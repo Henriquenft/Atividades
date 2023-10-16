@@ -1,0 +1,132 @@
+// Atividade 06
+
+ int tempo = 0;
+ void setup()
+ {
+// Porta 13 (LED_BUILTIN) em modo de saída (escrita)
+ pinMode(13, OUTPUT);//LED VERMELHO
+ // Porta 12 em modo de saída (escrita)
+ pinMode(12, OUTPUT); // LED AMARELO
+ // Porta 11 em modo de saída (escrita)
+ pinMode(11, OUTPUT); // LED VERDE
+ tempo = 1000;
+ }
+
+ void loop()
+ {
+digitalWrite(13, HIGH); // Liga o LED VERMELHO
+ delay(tempo); // Aguarda 1000 milésimos de segundo
+digitalWrite(13, LOW); // Apaga o LED VERMELHO
+digitalWrite(11, HIGH); // Liga o LED VERDE
+delay(tempo); // Aguarda 1000 milésimos de segundo
+digitalWrite(11, HIGH); // Apaga o LED VERDE
+digitalWrite(12, HIGH); // Liga o LED AMARELO
+delay(tempo); // Aguarda 1000 milésimos de segundo
+digitalWrite(12, LOW); // Desliga o LED AMARELO
+
+// Atividade 07
+
+int i = 0;
+
+void setup()
+ {
+ // Porta 11 em modo de saída (escrita)
+ pinMode(11, OUTPUT);
+ }
+
+void loop()
+ {
+// Percorre de 0 até 255 com passo 5
+for (i = 0; i <= 255; i += 5) {
+ // Escreve i na porta 11
+ analogWrite(11, i);
+ // Aguarda 50 milésimos de segundo
+ delay(50);
+ }
+ }
+
+// Atividade 08
+
+void setup()
+ {
+ //Porta 11 em modo de saída(escrita).
+ pinMode(11, OUTPUT); // Vermelho
+ //Porta 10 em modo de saída(escrita).
+ pinMode(10, OUTPUT); // Azul
+//Porta 9 em modo de saída(escrita).
+ pinMode(9, OUTPUT) // Verde
+ }
+
+ void loop()
+ {
+// Escrevemos 255 no pino digital 11
+ digitalWrite(11, 255);
+// Aguardamos 1000 milésimos de segundo
+ delay(1000);
+ //Escrevemos 0 no pino digital 11
+ digitalWrite(11, 0);
+// Aguardamos 1000 milésimos de segundo
+delay(1000);
+// Escrevemos 255 no pino digital 10
+digitalWrite(10, 255);
+// Aguardamos 1000 milésimos de segundo
+delay(1000);
+//Escrevemos 0 no pino digital 10
+digitalWrite(10, 0);
+// Aguardamos 1000 milésimos de segundo
+delay(1000);
+// Escrevemos 255 no pino digital 9
+digitalWrite(9, 255);
+// Aguardamos 1000 milésimos de segundo
+delay(1000);
+}
+
+// Atividade 09
+
+Luminosidade do fotoresistor
+int luminosidade = 0;
+
+void setup()
+{
+// Porta 0 (Analógica) em modo de entrada(leitura) para o
+fotoresistor
+pinMode(A0, INPUT);
+}
+
+void loop()
+{
+// Leitura do fotoresistor
+luminosidade = analogRead(A0);
+// Saída da variável no monitor serial
+Serial.println(luminosidade);
+// Atrase um pouco para melhorar o desempenho da simulação
+delay(10);
+}
+
+// Atividade 10
+
+Luminosidade do fotoresistor
+int luminosidade = 0;
+
+void setup()
+{
+// Porta 0(Analógica) em modo de entrada (leitura) para o
+fotoresistor
+pinMode(A0, INPUT);
+// Porta 13 (LED_BUILTIN) em modo de saída (escrita)
+pinMode(LED_BUILTIN, OUTPUT);// LED VERMELHO
+}
+
+void loop()
+{
+// Leitura do fotoresistor
+luminosidade = analogRead(A0);
+// Avalia a variável
+if (luminosidade < 750) {
+digitalWrite(LED_BUILTIN, HIGH); // Liga o LED VERMELHO
+} else {
+digitalWrite(LED_BUILTIN, LOW); // Desliga o LED VERMELHO
+}
+// Atrase um pouco para melhorar o desempenho da simulação
+delay(10); 
+}
